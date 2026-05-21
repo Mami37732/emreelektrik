@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emre Elektrik | Kastamonu Elektrikçi & Pilsan Akülü Araba Servisi</title>
     <style>
-        /* Modern Renk Paleti ve Temel Ayarlar */
         :root {
-            --primary-color: #0f172a; /* Koyu Lacivert (Güven verir) */
-            --accent-yellow: #f59e0b; /* Elektrik Sarısı */
-            --accent-blue: #3b82f6;   /* Pilsan Mavisi (Çocuk/Akülü araba dünyası) */
+            --primary-color: #0f172a; 
+            --accent-yellow: #f59e0b; 
+            --accent-blue: #3b82f6;   
             --text-dark: #334155;
             --bg-light: #f8fafc;
         }
@@ -27,7 +26,7 @@
             line-height: 1.6;
         }
 
-        /* Üst Menü (Header) */
+        /* Üst Menü ve Logo Ayarları */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -41,11 +40,25 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
 
-        .logo h1 {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Logo Resmi Ayarı */
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .logo-text h1 {
             font-size: 1.5rem;
             color: white;
         }
-        .logo span {
+        .logo-text span {
             color: var(--accent-yellow);
         }
 
@@ -61,7 +74,7 @@
             color: var(--accent-yellow);
         }
 
-        /* Giriş Alanı (Hero Section) */
+        /* Giriş Alanı (Hero) */
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
@@ -99,7 +112,7 @@
             background-color: #d97706;
         }
 
-        /* Hizmetler Bölümü (Grid Yapısı) */
+        /* Hizmetler Bölümü */
         .services-container {
             max-width: 1100px;
             margin: 4rem auto;
@@ -151,7 +164,7 @@
             font-weight: bold;
         }
 
-        /* Hakkımızda Şeridi */
+        /* Hakkımızda */
         .about {
             background-color: #f1f5f9;
             padding: 4rem 1rem;
@@ -169,33 +182,61 @@
             color: var(--primary-color);
         }
 
-        /* İletişim Bölümü */
-        .contact {
-            max-width: 800px;
+        /* İletişim & Harita Düzeni */
+        .contact-section {
+            max-width: 1100px;
             margin: 4rem auto;
             padding: 0 1rem;
-            text-align: center;
         }
 
-        .contact h3 {
+        .contact-section h3 {
             font-size: 2rem;
-            margin-bottom: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
         }
 
         .contact-info {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            height: 100%;
         }
 
         .contact-info p {
-            margin: 0.5rem 0;
+            margin-bottom: 1.2rem;
             font-size: 1.1rem;
         }
 
-        /* Alt Bilgi (Footer) */
+        /* Harita Kapsayıcı */
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         footer {
             background-color: var(--primary-color);
             color: #94a3b8;
@@ -208,10 +249,12 @@
 </head>
 <body>
 
-    <!-- Üst Menü -->
     <header>
-        <div class="logo">
-            <h1>Emre <span>Elektrik</span></h1>
+        <div class="logo-container">
+            <img src="logo.png" alt="Emre Elektrik Logo" class="logo-img">
+            <div class="logo-text">
+                <h1>Emre <span>Elektrik</span></h1>
+            </div>
         </div>
         <nav class="nav-links">
             <a href="#hizmetler">Hizmetler</a>
@@ -220,16 +263,13 @@
         </nav>
     </header>
 
-    <!-- Hero Giriş Alanı -->
     <section class="hero">
         <h2>Kastamonu Emre Elektrik</h2>
         <p>Ev ve iş yeri elektrik arızalarından, çocuklarınızın keyfi Pilsan Akülü Araba Yetkili Servis hizmetine kadar profesyonel çözümler sunuyoruz.</p>
-        <a href="tel:0539 404 32 73" class="btn-call">📞 Hemen Ara: 0539 404 32 73</a>
+        <a href="tel:05000000000" class="btn-call">📞 Hemen Ara: 0500 000 00 00</a>
     </section>
 
-    <!-- Hizmetler -->
     <section id="hizmetler" class="services-container">
-        <!-- Elektrik Kartı -->
         <div class="service-card">
             <h3>⚡ Genel Elektrik Hizmetleri</h3>
             <ul>
@@ -241,7 +281,6 @@
             </ul>
         </div>
 
-        <!-- Pilsan Kartı -->
         <div class="service-card pilsan">
             <h3>🏎️ Pilsan Akülü Araba Yetkili Servisi</h3>
             <ul>
@@ -254,7 +293,6 @@
         </div>
     </section>
 
-    <!-- Hakkımızda -->
     <section id="hakkimizda" class="about">
         <div class="about-content">
             <h3>Hakkımızda</h3>
@@ -262,21 +300,18 @@
         </div>
     </section>
 
-    <!-- İletişim -->
-    <section id="iletisim" class="contact">
-        <h3>İletişim Bilgileri</h3>
-        <div class="contact-info">
-            <p><strong>📍 Adres:</strong> Kastamonu Merkez, Aktekke Mahallesi Horozoğlu Sokak Emre Elektirik </p>
-            <p><strong>📞 Telefon:</strong> 0539 404 32 73</p>
-            <p><strong>🕒 Çalışma Saatleri:</strong> Pazartesi - Cumartesi: 08:30 - 19:00</p>
-        </div>
-        <p><em>* Akülü araba teslimatları ve elektrik arızaları için gelmeden önce telefonla randevu alabilirsiniz.</em></p>
-    </section>
+    <section id="iletisim" class="contact-section">
+        <h3>İletişim & Ulaşım</h3>
+        <div class="contact-grid">
+            
+            <div class="contact-info">
+                <p><strong>📍 Adres:</strong> Kastamonu Merkez, (Kendi adresinizi buraya yazabilirsiniz)</p>
+                <p><strong>📞 Telefon:</strong> 0500 000 00 00</p>
+                <p><strong>🕒 Çalışma Saatleri:</strong> Pazartesi - Cumartesi: 08:30 - 19:00</p>
+                <p style="font-size: 0.9rem; color: #64748b; font-style: italic; margin-top: 2rem;">
+                    * Akülü araba teslimatları ve elektrik arızaları için gelmeden önce telefonla randevu alabilirsiniz.
+                </p>
+            </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Emre Elektrik - Kastamonu. Tüm Hakları Saklıdır.</p>
-    </footer>
-
-</body>
-</html>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190479.4447477969!2d33.633979146914565!3d41.37966952871307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fa47cf5da1db%3A0x446543b355883fe0!2sKastamonu%2C%20Kastamonu%20Merkez%2FKastamonu!5e0!3m2!1str!2str!4v1716300000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-
