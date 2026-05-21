@@ -163,46 +163,35 @@
             font-weight: bold;
         }
 
-        /* YENİ: Yaptığımız İşler (Galeri) Alanı */
-        .gallery-section {
+        /* Canlı Instagram Galeri Alanı */
+        .instagram-section {
             background-color: white;
             padding: 4rem 1rem;
             text-align: center;
         }
 
-        .gallery-content {
-            max-width: 800px;
+        .instagram-content {
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .gallery-section h3 {
+        .instagram-section h3 {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--primary-color);
         }
 
-        .gallery-section p {
+        .instagram-section p {
             font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
+            margin-bottom: 2.5rem;
+            color: #64748b;
         }
 
-        .btn-gallery {
-            background-color: var(--accent-blue);
-            color: white;
-            padding: 0.8rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-            transition: background-color 0.2s, transform 0.2s;
-            display: inline-block;
-        }
-
-        .btn-gallery:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
+        .insta-feed-container {
+            width: 100%;
+            min-height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         /* Hakkımızda */
@@ -334,12 +323,20 @@
         </div>
     </section>
 
-    <section id="galeri" class="gallery-section">
-        <div class="gallery-content">
+    <section id="galeri" class="instagram-section">
+        <div class="instagram-content">
             <h3>📸 Yaptığımız İşler</h3>
-            <p>Bugüne kadar Kastamonu'da başarıyla tamamladığımız elektrik tesisat işlerini ve tamir ettiğimiz Pilsan akülü arabaların güncel fotoğraflarını aşağıdaki canlı albümümüzden inceleyebilirsiniz.</p>
+            <p>Instagram hesabımızda paylaştığımız en güncel iş teslimatları ve servis görüntülerimiz</p>
             
-            <a href="https://drive.google.com/drive/folders/1U8BS0JNM8Rjhx64a0J3zrSFKVtXgKg4K?usp=sharing" target="_blank" class="btn-gallery">📁 Fotoğraf Galerisini Görüntüle</a>
+            <div class="insta-feed-container">
+                <behold-widget feed-id="fOFCaN3hpbuP3tWOSbAA"></behold-widget>
+                <script>
+                  (() => {
+                    const d=document,s=d.createElement("script");s.type="module";
+                    s.src="https://w.behold.so/widget.js";d.head.append(s);
+                  })();
+                </script>
+                </div>
         </div>
     </section>
 
@@ -364,7 +361,7 @@
             </div>
 
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23942.78990766464!2d33.767424!3d41.3990912!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fb37164659c9%3A0x233372bb3163984!2sEmre%20Elektrik%20Kastamonu%20Pilsan%20Yetkili%20Servisi!5e0!3m2!1str!2str!4v1779397336143!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23942.78990766464!2d33.767424!3d41.3990912!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fb37164659c9%3A0x233372bb3163984!2sEmre%20Elektrik%20Kastamonu%20Pilsan%20Yetkili%20Servisi!5e0!3m2!1str!2str!4v1779397747840!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
         </div>
