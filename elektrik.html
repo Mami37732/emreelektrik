@@ -32,10 +32,22 @@
         .logo-text h1 { font-size: 1.5rem; color: white; }
         .logo-text span { color: var(--accent-yellow); }
 
-        .nav-links a {
-            color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s;
-        }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-yellow); }
+
+        /* Belirgin Ana Menü Butonu */
+        .btn-back-menu {
+            background-color: #3b82f6;
+            color: white !important;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-weight: bold !important;
+            border: 2px solid #2563eb;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease !important;
+        }
+        .btn-back-menu:hover { background-color: #2563eb !important; transform: translateY(-1px); }
 
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, var(--electric-blue) 100%);
@@ -51,17 +63,21 @@
         }
 
         .main-container { max-width: 1100px; margin: 4rem auto; padding: 0 1rem; }
-        .card { background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-top: 6px solid var(--electric-blue); }
+        .card { background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-top: 6px solid var(--electric-blue); margin-bottom: 3rem; }
         .card h3 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color); }
         .card ul { list-style-type: none; }
         .card li { margin-bottom: 1rem; position: relative; padding-left: 2rem; font-size: 1.1rem; }
         .card li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem; }
 
-        .contact-section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); margin-top: 3rem; }
+        /* Instagram Bölümü */
+        .instagram-section { text-align: center; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); margin-bottom: 3rem; }
+        .insta-feed-container { width: 100%; min-height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
+        .btn-insta-link { color: #e1306c; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+
+        .contact-section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
         .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
         @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
-        .map-container { width: 100%; height: 300px; border-radius: 12px; overflow: hidden; }
-        .map-container iframe { width: 100%; height: 100%; border: 0; }
+        .map-container { width: 100%; height: 450px; border-radius: 12px; overflow: hidden; }
 
         footer { background-color: var(--primary-color); color: #94a3b8; text-align: center; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.9rem; }
     </style>
@@ -74,8 +90,9 @@
             <div class="logo-text"><h1>Emre <span>Elektrik</span></h1></div>
         </div>
         <nav class="nav-links">
-            <a href="index.html">⬅ Ana Menü</a>
+            <a href="index.html" class="btn-back-menu">⬅ Ana Menü</a>
             <a href="#hizmetler">Hizmetler</a>
+            <a href="#galeri">Galeri</a>
             <a href="#iletisim">İletişim</a>
         </nav>
     </header>
@@ -86,8 +103,8 @@
         <a href="tel:05394043273" class="btn-call">📞 Hemen Ara: 0539 404 32 73</a>
     </section>
 
-    <div id="hizmetler" class="main-container">
-        <div class="card">
+    <div class="main-container">
+        <div id="hizmetler" class="card">
             <h3>Neler Yapıyoruz?</h3>
             <ul>
                 <li>Ev ve İş Yeri Elektrik Tesisat Kurulumu ve Komple Yenileme</li>
@@ -98,16 +115,34 @@
             </ul>
         </div>
 
+        <section id="galeri" class="instagram-section">
+            <h3 style="color:var(--primary-color); font-size:1.8rem; margin-bottom:0.5rem;">📸 Güncel Elektrik Projelerimiz</h3>
+            <p style="color:#64748b; margin-bottom:2rem;">Instagram hesabımızda paylaştığımız en güncel elektrik arıza ve tesisat çözümleri</p>
+            <div class="insta-feed-container">
+                <behold-widget feed-id="fOFCaN3hpbuP3tWOSbAA"></behold-widget>
+                <script>
+                  (() => {
+                    const d=document,s=d.createElement("script");s.type="module";
+                    s.src="https://w.behold.so/widget.js";d.head.append(s);
+                  })();
+                </script>
+            </div>
+            <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" class="btn-insta-link">
+                📸 Takip Et: @emre.elektirik.pilsan
+            </a>
+        </section>
+
         <section id="iletisim" class="contact-section">
             <h3 style="margin-bottom:1.5rem;">İletişim & Ulaşım</h3>
             <div class="contact-grid">
                 <div>
                     <p><strong>📍 Adres:</strong> Kastamonu Merkez, Aktekke Mahallesi Horozoğlu Sokak Emre Elektirik</p>
                     <p style="margin-top:10px;"><strong>📞 Telefon:</strong> 0539 404 32 73</p>
+                    <p style="margin-top:10px;"><strong>📸 Instagram:</strong> <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" style="color:#e1306c; text-decoration:none; font-weight:bold;">@emre.elektirik.pilsan</a></p>
                     <p style="margin-top:10px;"><strong>🕒 Çalışma Saatleri:</strong> Pazartesi - Cumartesi: 08:30 - 19:00</p>
                 </div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d529.1635289886776!2d33.781226345693575!3d41.38709802804155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fb37164659c9%3A0x233372bb3163984!2sEmre%20Elektrik%20Kastamonu%20Pilsan%20Yetkili%20Servisi!5e0!3m2!1str!2str!4v1779482775601!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23942.78990766464!2d33.767424!3d41.3990912!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fb37164659c9%3A0x233372bb3163984!2sEmre%20Elektrik%20Kastamonu%20Pilsan%20Yetkili%20Servisi!5e0!3m2!1str!2str!4v1779483143982!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
