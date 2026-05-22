@@ -16,7 +16,7 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
-            background-color: #000;
+            background-color: #ffffff;
         }
 
         .splash-container {
@@ -32,36 +32,106 @@
             text-align: center;
             vertical-align: middle;
             text-decoration: none;
-            transition: filter 0.3s ease;
+            position: relative;
+            transition: all 0.4s ease;
             padding: 20px;
+            overflow: hidden;
         }
 
-        /* Sol Taraf - Elektrik (Mavi) */
+        /* --- SOL TARAF (ELEKTRİK - MAVİ ÇİZGİLER) --- */
         .side-electric {
-            background-color: #1e3a8a;
-            color: white;
-            border-right: 2px solid rgba(255,255,255,0.1);
+            background-color: #ffffff;
+            border-right: 1px solid #e2e8f0;
         }
 
-        /* Sağ Taraf - Akülü Araba (Kırmızı) */
+        /* Mavi Kıvrımlı Çizgi Efektleri (Arka Plan) */
+        .side-electric::before, .side-electric::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            border-radius: 38%;
+            border: 2px solid rgba(30, 58, 138, 0.15); /* Mavi dalga çizgisi */
+            background-color: transparent;
+            pointer-events: none;
+            animation: rotateWaves 12s linear infinite;
+        }
+        .side-electric::after {
+            border-radius: 40%;
+            border: 1.5px dashed rgba(59, 130, 246, 0.2);
+            animation: rotateWaves 18s linear infinite;
+        }
+
+        .side-electric h1 {
+            color: #1e3a8a;
+            text-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
+        }
+
+        /* --- SAĞ TARAF (AKÜLÜ ARABA - KIRMIZI ÇİZGİLER) --- */
         .side-car {
-            background-color: #991b1b;
-            color: white;
+            background-color: #ffffff;
         }
 
-        .splash-side:hover {
-            filter: brightness(1.2);
+        /* Kırmızı Kıvrımlı Çizgi Efektleri (Arka Plan) */
+        .side-car::before, .side-car::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            bottom: -50%;
+            right: -50%;
+            border-radius: 35%;
+            border: 2px solid rgba(153, 27, 27, 0.15); /* Kırmızı dalga çizgisi */
+            background-color: transparent;
+            pointer-events: none;
+            animation: rotateWaves 14s linear infinite;
+        }
+        .side-car::after {
+            border-radius: 42%;
+            border: 1.5px dashed rgba(239, 68, 68, 0.2);
+            animation: rotateWaves 20s linear infinite;
         }
 
+        .side-car h1 {
+            color: #991b1b;
+            text-shadow: 0 2px 4px rgba(153, 27, 27, 0.1);
+        }
+
+        /* Yazıların Ortak Stili */
         .splash-side h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 10;
+            transition: transform 0.3s ease;
         }
 
-        /* Mobil Görünüm (Alt Alta) */
+        /* Hover (Üzerine Gelince) Efektleri */
+        .splash-side:hover {
+            background-color: #f8fafc;
+        }
+        
+        .side-electric:hover h1 {
+            transform: scale(1.05);
+            color: #3b82f6;
+        }
+
+        .side-car:hover h1 {
+            transform: scale(1.05);
+            color: #ef4444;
+        }
+
+        /* Çizgilerin Dönüş Animasyonu */
+        @keyframes rotateWaves {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobil Görünüm (Ekran küçükse alt alta gelirler) */
         @media (max-width: 768px) {
             .splash-container {
                 display: block;
@@ -70,14 +140,14 @@
                 display: block;
                 width: 100%;
                 height: 50vh;
+                line-height: 45vh;
             }
             .splash-side h1 {
                 font-size: 1.8rem;
-                line-height: 45vh;
             }
             .side-electric {
                 border-right: none;
-                border-bottom: 2px solid rgba(255,255,255,0.1);
+                border-bottom: 1px solid #e2e8f0;
             }
         }
     </style>
@@ -88,6 +158,7 @@
         <a href="elektrik.html" class="splash-side side-electric">
             <h1>⚡ EMRE ELEKTRİK</h1>
         </a>
+        
         <a href="pilsan.html" class="splash-side side-car">
             <h1>🏎️ AKÜLÜ ARABA SERVİSİ</h1>
         </a>
