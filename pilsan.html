@@ -69,16 +69,12 @@
         .card li { margin-bottom: 1rem; position: relative; padding-left: 2rem; font-size: 1.1rem; }
         .card li::before { content: "✓"; position: absolute; left: 0; color: #3b82f6; font-weight: bold; font-size: 1.2rem; }
 
-        /* Yeni İçerik Blokları İçin Grid */
+        /* İçerik Blokları İçin Grid */
         .content-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
         @media (min-width: 768px) { .content-grid { grid-template-columns: 1fr 1fr; } }
         .sub-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-left: 5px solid var(--car-red); }
         .sub-card h4 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 1rem; }
         .sub-card p { font-size: 1rem; color: #475569; }
-
-        .instagram-section { text-align: center; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); margin-bottom: 3rem; }
-        .insta-feed-container { width: 100%; min-height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
-        .btn-insta-link { color: #e1306c; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
 
         .contact-section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
         .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
@@ -99,7 +95,6 @@
             <a href="index.html" class="btn-back-menu">⬅ Ana Menü</a>
             <a href="#hizmetler">Hizmetler</a>
             <a href="#cozumler">Sık Arızalar</a>
-            <a href="#galeri">Galeri</a>
             <a href="#iletisim">İletişim</a>
         </nav>
     </header>
@@ -140,23 +135,6 @@
                 <p>Arızalı akülü aracınızı servisimize getirdiğinizde ön inceleme yapılır, sorun belirlenir ve size maliyet bilgisi verilir. Onayınızın ardından fabrika standartlarında onarılarak en kısa sürede ilk günkü performansıyla teslim edilir.</p>
             </div>
         </div>
-
-        <section id="galeri" class="instagram-section">
-            <h3 style="color:var(--primary-color); font-size:1.8rem; margin-bottom:0.5rem;">📸 Servis Görüntülerimiz</h3>
-            <p style="color:#64748b; margin-bottom:2rem;">Instagram hesabımızda paylaştığımız en güncel iş teslimatları</p>
-            <div class="insta-feed-container">
-                <behold-widget feed-id="fOFCaN3hpbuP3tWOSbAA"></behold-widget>
-                <script>
-                  (() => {
-                    const d=document,s=d.createElement("script");s.type="module";
-                    s.src="https://w.behold.so/widget.js";d.head.append(s);
-                  })();
-                </script>
-            </div>
-            <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" class="btn-insta-link">
-                📸 Takip Et: @emre.elektirik.pilsan
-            </a>
-        </section>
 
         <section id="iletisim" class="contact-section">
             <h3 style="margin-bottom:1.5rem; color:var(--primary-color);">İletişim & Ulaşım</h3>
