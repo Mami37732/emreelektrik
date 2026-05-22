@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Emre Elektrik & Pilsan Yetkili Servisi</title>
     <style>
-        /* Tüm tarayıcılarda dışarı taşmaları kökten engelliyoruz */
         * {
             margin: 0;
             padding: 0;
@@ -16,14 +15,14 @@
         body, html {
             width: 100%;
             height: 100vh;
-            overflow-x: hidden; /* Sağa kaymayı engeller */
-            overflow-y: hidden; /* Giriş ekranında aşağı kaymayı engeller */
+            overflow-x: hidden;
+            overflow-y: hidden;
             background-color: #ffffff;
             position: relative;
         }
 
         .splash-container {
-            display: flex; /* Daha stabil bir mobil görünüm için flex yapısına geçtik */
+            display: flex;
             width: 100%;
             height: 100vh;
             overflow: hidden;
@@ -40,7 +39,7 @@
             position: relative;
             transition: all 0.4s ease;
             padding: 20px;
-            overflow: hidden; /* Çizgilerin bu bölmenin dışına çıkmasını engeller */
+            overflow: hidden;
         }
 
         /* --- SOL TARAF (ELEKTRİK - MAVİ ÇİZGİLER) --- */
@@ -49,23 +48,26 @@
             border-right: 1px solid #e2e8f0;
         }
 
+        /* Bilgisayarda görünebilmesi için vw (ekran genişliği) cinsinden devasa boyut verdik */
         .side-electric::before, .side-electric::after {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
-            top: -50px;
-            left: -50px;
+            width: 70vw;
+            height: 70vw;
+            min-width: 400px;
+            min-height: 400px;
+            top: -20vw;
+            left: -20vw;
             border-radius: 38%;
-            border: 2px solid rgba(30, 58, 138, 0.15);
+            border: 3px solid rgba(30, 58, 138, 0.12);
             background-color: transparent;
             pointer-events: none;
-            animation: rotateWaves 12s linear infinite;
+            animation: rotateWaves 15s linear infinite;
         }
         .side-electric::after {
             border-radius: 40%;
-            border: 1.5px dashed rgba(59, 130, 246, 0.2);
-            animation: rotateWaves 18s linear infinite;
+            border: 2px dashed rgba(59, 130, 246, 0.15);
+            animation: rotateWaves 22s linear infinite;
         }
 
         .side-electric h1 {
@@ -81,20 +83,22 @@
         .side-car::before, .side-car::after {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
-            bottom: -50px;
-            right: -50px;
+            width: 70vw;
+            height: 70vw;
+            min-width: 400px;
+            min-height: 400px;
+            bottom: -20vw;
+            right: -20vw;
             border-radius: 35%;
-            border: 2px solid rgba(153, 27, 27, 0.15);
+            border: 3px solid rgba(153, 27, 27, 0.12);
             background-color: transparent;
             pointer-events: none;
-            animation: rotateWaves 14s linear infinite;
+            animation: rotateWaves 18s linear infinite;
         }
         .side-car::after {
             border-radius: 42%;
-            border: 1.5px dashed rgba(239, 68, 68, 0.2);
-            animation: rotateWaves 20s linear infinite;
+            border: 2px dashed rgba(239, 68, 68, 0.15);
+            animation: rotateWaves 25s linear infinite;
         }
 
         .side-car h1 {
@@ -102,9 +106,8 @@
             text-shadow: 0 2px 4px rgba(153, 27, 27, 0.1);
         }
 
-        /* Yazıların Ortak Stili */
         .splash-side h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -113,66 +116,33 @@
             transition: transform 0.3s ease;
         }
 
-        /* Hover (Üzerine Gelince) Efektleri */
         .splash-side:hover {
             background-color: #f8fafc;
         }
         
-        .side-electric:hover h1 {
-            transform: scale(1.05);
-            color: #3b82f6;
-        }
+        .side-electric:hover h1 { transform: scale(1.05); color: #3b82f6; }
+        .side-car:hover h1 { transform: scale(1.05); color: #ef4444; }
 
-        .side-car:hover h1 {
-            transform: scale(1.05);
-            color: #ef4444;
-        }
-
-        /* Çizgilerin Dönüş Animasyonu */
         @keyframes rotateWaves {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        /* Mobil Görünüm (Telefonlar için Tam Uyum) */
+        /* Mobil Görünüm */
         @media (max-width: 768px) {
-            body, html {
-                overflow-y: hidden; /* Mobilde de aşağı kaymayı önler */
-            }
-            .splash-container {
-                flex-direction: column; /* Yan yana olan yapıyı alt alta getirir */
-            }
-            .splash-side {
-                width: 100%;
-                height: 50vh; /* Ekranı tam ortadan ikiye böler */
-            }
-            .splash-side h1 {
-                font-size: 1.8rem;
-            }
-            .side-electric {
-                border-right: none;
-                border-bottom: 1px solid #e2e8f0;
-            }
-            /* Mobilde çizgilerin taşmasını engellemek için boyutları optimize ettik */
-            .side-electric::before, .side-electric::after,
-            .side-car::before, .side-car::after {
-                width: 200px;
-                height: 200px;
-            }
+            .splash-container { flex-direction: column; }
+            .splash-side { width: 100%; height: 50vh; }
+            .splash-side h1 { font-size: 1.8rem; }
+            .side-electric { border-right: none; border-bottom: 1px solid #e2e8f0; }
+            .side-electric::before, .side-electric::after { width: 100vw; height: 100vw; top: -30vw; left: -10vw; }
+            .side-car::before, .side-car::after { width: 100vw; height: 100vw; bottom: -30vw; right: -10vw; }
         }
     </style>
 </head>
 <body>
-
     <div class="splash-container">
-        <a href="elektrik.html" class="splash-side side-electric">
-            <h1>⚡ EMRE ELEKTRİK</h1>
-        </a>
-        
-        <a href="pilsan.html" class="splash-side side-car">
-            <h1>🏎️ AKÜLÜ ARABA SERVİSİ</h1>
-        </a>
+        <a href="elektrik.html" class="splash-side side-electric"><h1>⚡ EMRE ELEKTRİK</h1></a>
+        <a href="pilsan.html" class="splash-side side-car"><h1>🏎️ AKÜLÜ ARABA SERVİSİ</h1></a>
     </div>
-
 </body>
 </html>
