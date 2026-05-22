@@ -13,21 +13,8 @@
             --electric-blue: #1e3a8a;
         }
 
-        /* Tüm taşmaları engellemek için kritik kurallar */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Segoe UI', sans-serif; 
-        }
-        
-        body, html { 
-            width: 100%;
-            overflow-x: hidden; /* Sağa kaymayı kesin olarak engeller */
-            background-color: var(--bg-light); 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body, html { width: 100%; overflow-x: hidden; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
         
         header {
             background-color: var(--primary-color);
@@ -46,73 +33,87 @@
         .logo-text h1 { font-size: 1.3rem; color: white; }
         .logo-text span { color: var(--accent-yellow); }
 
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 15px; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
-        
+        /* 3 Çizgili Menü Butonu (Hamburger) */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Sağdan Açılan Yan Panel (Sidebar Menu) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px; /* İlk başta ekranın sağında gizli */
+            width: 280px;
+            height: 100vh;
+            background-color: var(--primary-color);
+            z-index: 1050;
+            padding: 5rem 2rem 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            transition: right 0.4s ease;
+        }
+        .sidebar.active { right: 0; } /* Tetiklendiğinde içeri kayar */
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s;
+        }
+        .sidebar a:hover { color: var(--accent-yellow); }
+
         .btn-back-menu {
             background-color: #3b82f6;
             color: white !important;
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-weight: bold !important;
+            text-align: center;
+            border-radius: 8px;
             border: 2px solid #2563eb;
+            margin-top: 2rem;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, var(--electric-blue) 100%);
-            color: white; text-align: center; padding: 4rem 1rem;
-            width: 100%;
-            overflow: hidden;
-        }
+        /* Sayfa İçerikleri */
+        .hero { background: linear-gradient(135deg, #0f172a 0%, var(--electric-blue) 100%); color: white; text-align: center; padding: 4rem 1rem; width: 100%; overflow: hidden; }
         .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
         .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem auto; color: #cbd5e1; }
-
-        .btn-call {
-            background-color: var(--accent-yellow); color: var(--primary-color);
-            padding: 0.8rem 1.5rem; font-size: 1.1rem; font-weight: bold;
-            text-decoration: none; border-radius: 50px; display: inline-block;
-            max-width: 100%;
-        }
-
+        .btn-call { background-color: var(--accent-yellow); color: var(--primary-color); padding: 0.8rem 1.5rem; font-size: 1.1rem; font-weight: bold; text-decoration: none; border-radius: 50px; display: inline-block; max-width: 100%; }
         .main-container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; width: 100%; overflow: hidden; }
         .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 6px solid var(--electric-blue); margin-bottom: 2rem; width: 100%; }
         .card h3 { font-size: 1.7rem; margin-bottom: 1.5rem; color: var(--primary-color); }
         .card ul { list-style-type: none; }
         .card li { margin-bottom: 1rem; position: relative; padding-left: 1.8rem; font-size: 1rem; word-wrap: break-word; }
         .card li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; }
-
         .instagram-section { text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 2rem; width: 100%; overflow: hidden; }
         .insta-feed-container { width: 100%; min-height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
         .btn-insta-link { color: #e1306c; text-decoration: none; font-weight: 600; }
-
         .contact-section { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); width: 100%; }
         .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-        
-        /* Haritanın taşmasını önleyen esnek kapsayıcı */
-        .map-container { 
-            width: 100%; 
-            height: 0;
-            padding-bottom: 75%; /* 4:3 Oranında esnek yapı */
-            position: relative;
-            border-radius: 12px; 
-            overflow: hidden; 
-        }
-        .map-container iframe { 
-            position: absolute;
-            top: 0; left: 0;
-            width: 100% !important; 
-            height: 100% !important; 
-            border: 0; 
-        }
-
+        .map-container { width: 100%; height: 0; padding-bottom: 75%; position: relative; border-radius: 12px; overflow: hidden; }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100% !important; height: 100% !important; border: 0; }
         footer { background-color: var(--primary-color); color: #94a3b8; text-align: center; padding: 2rem 1rem; margin-top: 3rem; font-size: 0.9rem; width: 100%; }
 
-        /* Mobil Ekran Düzenlemeleri */
         @media (min-width: 768px) { 
             .contact-grid { grid-template-columns: 1fr 1fr; } 
             .logo-img { height: 50px; }
             .logo-text h1 { font-size: 1.5rem; }
-            .nav-links a { margin-left: 20px; font-size: 1rem; }
             .hero h2 { font-size: 2.5rem; }
             .map-container { padding-bottom: 0; height: 450px; }
         }
@@ -125,13 +126,19 @@
             <img src="logo.png" alt="Emre Elektrik Logo" class="logo-img">
             <div class="logo-text"><h1>Emre <span>Elektrik</span></h1></div>
         </div>
-        <nav class="nav-links">
-            <a href="index.html" class="btn-back-menu">⬅ Menü</a>
-            <a href="#hizmetler">Hizmetler</a>
-            <a href="#galeri">Galeri</a>
-            <a href="#iletisim">İletişim</a>
-        </nav>
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+
+    <nav class="sidebar" id="sidebar-menu">
+        <a href="#hizmetler" onclick="toggleMenu()">Hizmetler</a>
+        <a href="#galeri" onclick="toggleMenu()">Galeri</a>
+        <a href="#iletisim" onclick="toggleMenu()">İletişim</a>
+        <a href="index.html" class="btn-back-menu">⬅ Ana Menü</a>
+    </nav>
 
     <section class="hero">
         <h2>⚡ Genel Elektrik Hizmetleri</h2>
@@ -163,9 +170,7 @@
                   })();
                 </script>
             </div>
-            <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" class="btn-insta-link">
-                📸 Takip Et: @emre.elektirik.pilsan
-            </a>
+            <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" class="btn-insta-link">📸 Takip Et: @emre.elektirik.pilsan</a>
         </section>
 
         <section id="iletisim" class="contact-section">
@@ -186,5 +191,18 @@
 
     <footer><p>© 2026 Emre Elektrik - Kastamonu. Tüm Hakları Saklıdır.</p></footer>
 
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        menuBtn.addEventListener('click', () => {
+            sidebarMenu.classList.toggle('active');
+            menuBtn.classList.toggle('open');
+        });
+
+        function toggleMenu() {
+            sidebarMenu.classList.remove('active');
+        }
+    </script>
 </body>
 </html>
