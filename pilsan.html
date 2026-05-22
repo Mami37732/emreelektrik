@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilsan Akülü Araba Yetkili Servisi | Kastamonu</title>
+    <style>
+        :root {
+            --primary-color: #0f172a; 
+            --accent-yellow: #f59e0b; 
+            --text-dark: #334155;
+            --bg-light: #f8fafc;
+            --car-red: #991b1b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0; z-index: 1000;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 50px; width: auto; object-fit: contain; }
+        .logo-text h1 { font-size: 1.5rem; color: white; }
+        .logo-text span { color: var(--accent-yellow); }
+
+        .nav-links a {
+            color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-yellow); }
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, var(--car-red) 100%);
+            color: white; text-align: center; padding: 5rem 1rem;
+        }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem auto; color: #cbd5e1; }
+
+        .btn-call {
+            background-color: var(--accent-yellow); color: var(--primary-color);
+            padding: 0.8rem 2rem; font-size: 1.2rem; font-weight: bold;
+            text-decoration: none; border-radius: 50px; display: inline-block;
+        }
+
+        .main-container { max-width: 1100px; margin: 4rem auto; padding: 0 1rem; }
+        .card { background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-top: 6px solid var(--car-red); margin-bottom: 3rem; }
+        .card h3 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .card ul { list-style-type: none; }
+        .card li { margin-bottom: 1rem; position: relative; padding-left: 2rem; font-size: 1.1rem; }
+        .card li::before { content: "✓"; position: absolute; left: 0; color: #3b82f6; font-weight: bold; font-size: 1.2rem; }
+
+        /* Instagram Bölümü */
+        .instagram-section { text-align: center; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); margin-bottom: 3rem; }
+        .insta-feed-container { width: 100%; min-height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
+        .btn-insta-link { color: #e1306c; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+
+        .contact-section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
+        .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+        .map-container { width: 100%; height: 300px; border-radius: 12px; overflow: hidden; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        footer { background-color: var(--primary-color); color: #94a3b8; text-align: center; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Emre Elektrik Logo" class="logo-img">
+            <div class="logo-text"><h1>Emre <span>Elektrik</span></h1></div>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">⬅ Ana Menü</a>
+            <a href="#hizmetler">Servis Hizmetleri</a>
+            <a href="#galeri">Yaptığımız İşler</a>
+            <a href="#iletisim">İletişim</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>🏎️ Pilsan Akülü Araba Yetkili Servisi</h2>
+        <p>Kastamonu ve çevresindeki tüm akülü araba arızaları, parça değişimleri ve periyodik bakımlar için orijinal fabrika güvencesi sunuyoruz.</p>
+        <a href="tel:05394043273" class="btn-call">📞 Hemen Ara: 0539 404 32 73</a>
+    </section>
+
+    <div class="main-container">
+        <div id="hizmetler" class="card">
+            <h3>Yetkili Servis Çözümlerimiz</h3>
+            <ul>
+                <li>Orijinal Pilsan Fabrika Onaylı Yedek Parça Desteği</li>
+                <li>Garantili Akü Değişimi, Performans ve Şarj Sorunları Çözümü</li>
+                <li>Anakart Tamiri, Motor Değişimi ve Uzaktan Kumanda Senkronizasyonu</li>
+                <li>Periyodik Güvenlik Testleri ve Mekanik Dişli Bakımları</li>
+                <li>Kastamonu ve Çevresine Güvenilir Yetkili Servis Güvencesi</li>
+            </ul>
+        </div>
+
+        <section id="galeri" class="instagram-section">
+            <h3 style="color:var(--primary-color); font-size:1.8rem; margin-bottom:0.5rem;">📸 Servis Görüntülerimiz</h3>
+            <p style="color:#64748b; margin-bottom:2rem;">Instagram hesabımızda paylaştığımız en güncel iş teslimatları</p>
+            <div class="insta-feed-container">
+                <behold-widget feed-id="fOFCaN3hpbuP3tWOSbAA"></behold-widget>
+                <script>
+                  (() => {
+                    const d=document,s=d.createElement("script");s.type="module";
+                    s.src="https://w.behold.so/widget.js";d.head.append(s);
+                  })();
+                </script>
+            </div>
+            <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" class="btn-insta-link">
+                📸 Takip Et: @emre.elektirik.pilsan
+            </a>
+        </section>
+
+        <section id="iletisim" class="contact-section">
+            <h3 style="margin-bottom:1.5rem; color:var(--primary-color);">İletişim & Ulaşım</h3>
+            <div class="contact-grid">
+                <div>
+                    <p><strong>📍 Adres:</strong> Kastamonu Merkez, Aktekke Mahallesi Horozoğlu Sokak Emre Elektirik</p>
+                    <p style="margin-top:10px;"><strong>📞 Telefon:</strong> 0539 404 32 73</p>
+                    <p style="margin-top:10px;"><strong>📸 Instagram:</strong> <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" style="color:#e1306c; text-decoration:none;">@emre.elektirik.pilsan</a></p>
+                    <p style="margin-top:10px;"><strong>🕒 Çalışma Saatleri:</strong> Pazartesi - Cumartesi: 08:30 - 19:00</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.432328153406!2d33.7749!3d41.3764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084f936b85671ef%3A0x6b7bf48ef89a149!2sAktekke%2C%20Horozo%C4%9Flu%20Sk.%2C%2037100%20Kastamonu%20Merkez%2FKastamonu!5e0!3m2!1str!2str!4v1716410000000!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer><p>© 2026 Emre Elektrik - Kastamonu. Tüm Hakları Saklıdır.</p></footer>
+
+</body>
+</html>
