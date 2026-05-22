@@ -32,10 +32,22 @@
         .logo-text h1 { font-size: 1.5rem; color: white; }
         .logo-text span { color: var(--accent-yellow); }
 
-        .nav-links a {
-            color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s;
-        }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-yellow); }
+
+        /* Belirgin Ana Menü Butonu */
+        .btn-back-menu {
+            background-color: #3b82f6;
+            color: white !important;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-weight: bold !important;
+            border: 2px solid #2563eb;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease !important;
+        }
+        .btn-back-menu:hover { background-color: #2563eb !important; transform: translateY(-1px); }
 
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, var(--car-red) 100%);
@@ -57,7 +69,13 @@
         .card li { margin-bottom: 1rem; position: relative; padding-left: 2rem; font-size: 1.1rem; }
         .card li::before { content: "✓"; position: absolute; left: 0; color: #3b82f6; font-weight: bold; font-size: 1.2rem; }
 
-        /* Instagram Bölümü */
+        /* Yeni İçerik Blokları İçin Grid */
+        .content-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+        @media (min-width: 768px) { .content-grid { grid-template-columns: 1fr 1fr; } }
+        .sub-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-left: 5px solid var(--car-red); }
+        .sub-card h4 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 1rem; }
+        .sub-card p { font-size: 1rem; color: #475569; }
+
         .instagram-section { text-align: center; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); margin-bottom: 3rem; }
         .insta-feed-container { width: 100%; min-height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
         .btn-insta-link { color: #e1306c; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
@@ -65,8 +83,7 @@
         .contact-section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
         .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
         @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
-        .map-container { width: 100%; height: 300px; border-radius: 12px; overflow: hidden; }
-        .map-container iframe { width: 100%; height: 100%; border: 0; }
+        .map-container { width: 100%; height: 450px; border-radius: 12px; overflow: hidden; }
 
         footer { background-color: var(--primary-color); color: #94a3b8; text-align: center; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.9rem; }
     </style>
@@ -79,9 +96,10 @@
             <div class="logo-text"><h1>Emre <span>Elektrik</span></h1></div>
         </div>
         <nav class="nav-links">
-            <a href="index.html">⬅ Ana Menü</a>
-            <a href="#hizmetler">Servis Hizmetleri</a>
-            <a href="#galeri">Yaptığımız İşler</a>
+            <a href="index.html" class="btn-back-menu">⬅ Ana Menü</a>
+            <a href="#hizmetler">Hizmetler</a>
+            <a href="#cozumler">Sık Arızalar</a>
+            <a href="#galeri">Galeri</a>
             <a href="#iletisim">İletişim</a>
         </nav>
     </header>
@@ -102,6 +120,25 @@
                 <li>Periyodik Güvenlik Testleri ve Mekanik Dişli Bakımları</li>
                 <li>Kastamonu ve Çevresine Güvenilir Yetkili Servis Güvencesi</li>
             </ul>
+        </div>
+
+        <div id="cozumler" class="content-grid">
+            <div class="sub-card">
+                <h4>🛠️ Sık Karşılaşılan Akülü Araba Arızaları</h4>
+                <p>Akülü araçlarda en sık; şarj tutmama, kumandanın arabayı görmemesi, motordan ses gelmesi veya aracın hiç çalışmaması gibi sorunlar yaşanır. Teknik servisimizde tüm bu arızalar bilgisayarlı test cihazları ile hızlıca tespit edilerek giderilir.</p>
+            </div>
+            <div class="sub-card">
+                <h4>💎 Neden Pilsan Yetkili Servisi?</h4>
+                <p>Merdiven altı tamircilerin takacağı yan sanayi akü ve kalitesiz dişliler, çocuğunuzun güvenliğini tehlikeye atar ve araca kalıcı zarar verir. Yetkili servis olarak sadece orijinal fabrika yedek parçaları kullanır, tamirlerimize garanti veririz.</p>
+            </div>
+            <div class="sub-card">
+                <h4>🔋 Akü Kullanım Ömrünü Uzatma İpuçları</h4>
+                <p>Akülü arabanızın aküsünü kış aylarında (araç kullanılmasa bile) ayda en az 1 kez tam şarj etmelisiniz. Aküyü tamamen sıfırlanana kadar bitirmemek ve orijinal şarj aletleri kullanmak ömrünü doğrudan iki katına çıkaracaktır.</p>
+            </div>
+            <div class="sub-card">
+                <h4>🔄 Hızlı ve Profesyonel Onarım Süreci</h4>
+                <p>Arızalı akülü aracınızı servisimize getirdiğinizde ön inceleme yapılır, sorun belirlenir ve size maliyet bilgisi verilir. Onayınızın ardından fabrika standartlarında onarılarak en kısa sürede ilk günkü performansıyla teslim edilir.</p>
+            </div>
         </div>
 
         <section id="galeri" class="instagram-section">
@@ -127,11 +164,11 @@
                 <div>
                     <p><strong>📍 Adres:</strong> Kastamonu Merkez, Aktekke Mahallesi Horozoğlu Sokak Emre Elektirik</p>
                     <p style="margin-top:10px;"><strong>📞 Telefon:</strong> 0539 404 32 73</p>
-                    <p style="margin-top:10px;"><strong>📸 Instagram:</strong> <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" style="color:#e1306c; text-decoration:none;">@emre.elektirik.pilsan</a></p>
+                    <p style="margin-top:10px;"><strong>📸 Instagram:</strong> <a href="https://www.instagram.com/emre.elektirik.pilsan" target="_blank" style="color:#e1306c; text-decoration:none; font-weight:bold;">@emre.elektirik.pilsan</a></p>
                     <p style="margin-top:10px;"><strong>🕒 Çalışma Saatleri:</strong> Pazartesi - Cumartesi: 08:30 - 19:00</p>
                 </div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.432328153406!2d33.7749!3d41.3764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084f936b85671ef%3A0x6b7bf48ef89a149!2sAktekke%2C%20Horozo%C4%9Flu%20Sk.%2C%2037100%20Kastamonu%20Merkez%2FKastamonu!5e0!3m2!1str!2str!4v1716410000000!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23942.78990766464!2d33.767424!3d41.3990912!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fb37164659c9%3A0x233372bb3163984!2sEmre%20Elektrik%20Kastamonu%20Pilsan%20Yetkili%20Servisi!5e0!3m2!1str!2str!4v1779483143982!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
