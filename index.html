@@ -2,33 +2,177 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Emre Elektrik & Pilsan Yetkili Servisi</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body, html { width: 100%; height: 100vh; overflow: hidden; background-color: #ffffff; }
-        .splash-container { display: table; width: 100%; height: 100%; }
-        .splash-side { display: table-cell; width: 50%; height: 100%; text-align: center; vertical-align: middle; text-decoration: none; position: relative; transition: all 0.4s ease; padding: 20px; overflow: hidden; }
-        .side-electric { background-color: #ffffff; border-right: 1px solid #e2e8f0; }
-        .side-electric::before, .side-electric::after { content: ""; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; border-radius: 38%; border: 2px solid rgba(30, 58, 138, 0.15); animation: rotateWaves 12s linear infinite; }
-        .side-electric::after { border-radius: 40%; border: 1.5px dashed rgba(59, 130, 246, 0.2); animation: rotateWaves 18s linear infinite; }
-        .side-electric h1 { color: #1e3a8a; }
-        .side-car { background-color: #ffffff; }
-        .side-car::before, .side-car::after { content: ""; position: absolute; width: 200%; height: 200%; bottom: -50%; right: -50%; border-radius: 35%; border: 2px solid rgba(153, 27, 27, 0.15); animation: rotateWaves 14s linear infinite; }
-        .side-car::after { border-radius: 42%; border: 1.5px dashed rgba(239, 68, 68, 0.2); animation: rotateWaves 20s linear infinite; }
-        .side-car h1 { color: #991b1b; }
-        .splash-side h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; position: relative; z-index: 10; transition: transform 0.3s ease; }
-        .splash-side:hover { background-color: #f8fafc; }
-        .side-electric:hover h1 { transform: scale(1.05); color: #3b82f6; }
-        .side-car:hover h1 { transform: scale(1.05); color: #ef4444; }
-        @keyframes rotateWaves { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @media (max-width: 768px) { .splash-container { display: block; } .splash-side { display: block; width: 100%; height: 50vh; line-height: 45vh; } .splash-side h1 { font-size: 1.8rem; } .side-electric { border-right: none; border-bottom: 1px solid #e2e8f0; } }
+        /* Tüm tarayıcılarda dışarı taşmaları kökten engelliyoruz */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden; /* Sağa kaymayı engeller */
+            overflow-y: hidden; /* Giriş ekranında aşağı kaymayı engeller */
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .splash-container {
+            display: flex; /* Daha stabil bir mobil görünüm için flex yapısına geçtik */
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .splash-side {
+            flex: 1;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.4s ease;
+            padding: 20px;
+            overflow: hidden; /* Çizgilerin bu bölmenin dışına çıkmasını engeller */
+        }
+
+        /* --- SOL TARAF (ELEKTRİK - MAVİ ÇİZGİLER) --- */
+        .side-electric {
+            background-color: #ffffff;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .side-electric::before, .side-electric::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+            border-radius: 38%;
+            border: 2px solid rgba(30, 58, 138, 0.15);
+            background-color: transparent;
+            pointer-events: none;
+            animation: rotateWaves 12s linear infinite;
+        }
+        .side-electric::after {
+            border-radius: 40%;
+            border: 1.5px dashed rgba(59, 130, 246, 0.2);
+            animation: rotateWaves 18s linear infinite;
+        }
+
+        .side-electric h1 {
+            color: #1e3a8a;
+            text-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
+        }
+
+        /* --- SAĞ TARAF (AKÜLÜ ARABA - KIRMIZI ÇİZGİLER) --- */
+        .side-car {
+            background-color: #ffffff;
+        }
+
+        .side-car::before, .side-car::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            bottom: -50px;
+            right: -50px;
+            border-radius: 35%;
+            border: 2px solid rgba(153, 27, 27, 0.15);
+            background-color: transparent;
+            pointer-events: none;
+            animation: rotateWaves 14s linear infinite;
+        }
+        .side-car::after {
+            border-radius: 42%;
+            border: 1.5px dashed rgba(239, 68, 68, 0.2);
+            animation: rotateWaves 20s linear infinite;
+        }
+
+        .side-car h1 {
+            color: #991b1b;
+            text-shadow: 0 2px 4px rgba(153, 27, 27, 0.1);
+        }
+
+        /* Yazıların Ortak Stili */
+        .splash-side h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover (Üzerine Gelince) Efektleri */
+        .splash-side:hover {
+            background-color: #f8fafc;
+        }
+        
+        .side-electric:hover h1 {
+            transform: scale(1.05);
+            color: #3b82f6;
+        }
+
+        .side-car:hover h1 {
+            transform: scale(1.05);
+            color: #ef4444;
+        }
+
+        /* Çizgilerin Dönüş Animasyonu */
+        @keyframes rotateWaves {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobil Görünüm (Telefonlar için Tam Uyum) */
+        @media (max-width: 768px) {
+            body, html {
+                overflow-y: hidden; /* Mobilde de aşağı kaymayı önler */
+            }
+            .splash-container {
+                flex-direction: column; /* Yan yana olan yapıyı alt alta getirir */
+            }
+            .splash-side {
+                width: 100%;
+                height: 50vh; /* Ekranı tam ortadan ikiye böler */
+            }
+            .splash-side h1 {
+                font-size: 1.8rem;
+            }
+            .side-electric {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            /* Mobilde çizgilerin taşmasını engellemek için boyutları optimize ettik */
+            .side-electric::before, .side-electric::after,
+            .side-car::before, .side-car::after {
+                width: 200px;
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
+
     <div class="splash-container">
-        <a href="elektrik.html" class="splash-side side-electric"><h1>⚡ EMRE ELEKTRİK</h1></a>
-        <a href="pilsan.html" class="splash-side side-car"><h1>🏎️ AKÜLÜ ARABA SERVİSİ</h1></a>
+        <a href="elektrik.html" class="splash-side side-electric">
+            <h1>⚡ EMRE ELEKTRİK</h1>
+        </a>
+        
+        <a href="pilsan.html" class="splash-side side-car">
+            <h1>🏎️ AKÜLÜ ARABA SERVİSİ</h1>
+        </a>
     </div>
+
 </body>
 </html>
