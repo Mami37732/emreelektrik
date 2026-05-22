@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Emre Elektrik | Kastamonu Elektrikçi</title>
     <style>
         :root {
@@ -13,8 +13,21 @@
             --electric-blue: #1e3a8a;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        /* Tüm taşmaları engellemek için kritik kurallar */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', sans-serif; 
+        }
+        
+        body, html { 
+            width: 100%;
+            overflow-x: hidden; /* Sağa kaymayı kesin olarak engeller */
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+        }
         
         header {
             background-color: var(--primary-color);
@@ -25,61 +38,84 @@
             align-items: center;
             position: sticky;
             top: 0; z-index: 1000;
+            width: 100%;
         }
 
         .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-img { height: 50px; width: auto; object-fit: contain; }
-        .logo-text h1 { font-size: 1.5rem; color: white; }
+        .logo-img { height: 40px; width: auto; object-fit: contain; }
+        .logo-text h1 { font-size: 1.3rem; color: white; }
         .logo-text span { color: var(--accent-yellow); }
 
         .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent-yellow); }
-
-        /* Belirgin Ana Menü Butonu */
+        .nav-links a { color: white; text-decoration: none; margin-left: 15px; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
+        
         .btn-back-menu {
             background-color: #3b82f6;
             color: white !important;
-            padding: 6px 16px;
-            border-radius: 8px;
+            padding: 5px 12px;
+            border-radius: 6px;
             font-weight: bold !important;
             border: 2px solid #2563eb;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: all 0.3s ease !important;
         }
-        .btn-back-menu:hover { background-color: #2563eb !important; transform: translateY(-1px); }
 
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, var(--electric-blue) 100%);
-            color: white; text-align: center; padding: 5rem 1rem;
+            color: white; text-align: center; padding: 4rem 1rem;
+            width: 100%;
+            overflow: hidden;
         }
-        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem auto; color: #cbd5e1; }
+        .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem auto; color: #cbd5e1; }
 
         .btn-call {
             background-color: var(--accent-yellow); color: var(--primary-color);
-            padding: 0.8rem 2rem; font-size: 1.2rem; font-weight: bold;
+            padding: 0.8rem 1.5rem; font-size: 1.1rem; font-weight: bold;
             text-decoration: none; border-radius: 50px; display: inline-block;
+            max-width: 100%;
         }
 
-        .main-container { max-width: 1100px; margin: 4rem auto; padding: 0 1rem; }
-        .card { background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-top: 6px solid var(--electric-blue); margin-bottom: 3rem; }
-        .card h3 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .main-container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; width: 100%; overflow: hidden; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 6px solid var(--electric-blue); margin-bottom: 2rem; width: 100%; }
+        .card h3 { font-size: 1.7rem; margin-bottom: 1.5rem; color: var(--primary-color); }
         .card ul { list-style-type: none; }
-        .card li { margin-bottom: 1rem; position: relative; padding-left: 2rem; font-size: 1.1rem; }
-        .card li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem; }
+        .card li { margin-bottom: 1rem; position: relative; padding-left: 1.8rem; font-size: 1rem; word-wrap: break-word; }
+        .card li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; }
 
-        /* Instagram Bölümü */
-        .instagram-section { text-align: center; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); margin-bottom: 3rem; }
+        .instagram-section { text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 2rem; width: 100%; overflow: hidden; }
         .insta-feed-container { width: 100%; min-height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
-        .btn-insta-link { color: #e1306c; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+        .btn-insta-link { color: #e1306c; text-decoration: none; font-weight: 600; }
 
-        .contact-section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
+        .contact-section { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); width: 100%; }
         .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-        @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
-        .map-container { width: 100%; height: 450px; border-radius: 12px; overflow: hidden; }
+        
+        /* Haritanın taşmasını önleyen esnek kapsayıcı */
+        .map-container { 
+            width: 100%; 
+            height: 0;
+            padding-bottom: 75%; /* 4:3 Oranında esnek yapı */
+            position: relative;
+            border-radius: 12px; 
+            overflow: hidden; 
+        }
+        .map-container iframe { 
+            position: absolute;
+            top: 0; left: 0;
+            width: 100% !important; 
+            height: 100% !important; 
+            border: 0; 
+        }
 
-        footer { background-color: var(--primary-color); color: #94a3b8; text-align: center; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.9rem; }
+        footer { background-color: var(--primary-color); color: #94a3b8; text-align: center; padding: 2rem 1rem; margin-top: 3rem; font-size: 0.9rem; width: 100%; }
+
+        /* Mobil Ekran Düzenlemeleri */
+        @media (min-width: 768px) { 
+            .contact-grid { grid-template-columns: 1fr 1fr; } 
+            .logo-img { height: 50px; }
+            .logo-text h1 { font-size: 1.5rem; }
+            .nav-links a { margin-left: 20px; font-size: 1rem; }
+            .hero h2 { font-size: 2.5rem; }
+            .map-container { padding-bottom: 0; height: 450px; }
+        }
     </style>
 </head>
 <body>
@@ -90,7 +126,7 @@
             <div class="logo-text"><h1>Emre <span>Elektrik</span></h1></div>
         </div>
         <nav class="nav-links">
-            <a href="index.html" class="btn-back-menu">⬅ Ana Menü</a>
+            <a href="index.html" class="btn-back-menu">⬅ Menü</a>
             <a href="#hizmetler">Hizmetler</a>
             <a href="#galeri">Galeri</a>
             <a href="#iletisim">İletişim</a>
@@ -116,8 +152,8 @@
         </div>
 
         <section id="galeri" class="instagram-section">
-            <h3 style="color:var(--primary-color); font-size:1.8rem; margin-bottom:0.5rem;">📸 Güncel Elektrik Projelerimiz</h3>
-            <p style="color:#64748b; margin-bottom:2rem;">Instagram hesabımızda paylaştığımız en güncel elektrik arıza ve tesisat çözümleri</p>
+            <h3 style="color:var(--primary-color); font-size:1.5rem; margin-bottom:0.5rem;">📸 Güncel Elektrik Projelerimiz</h3>
+            <p style="color:#64748b; margin-bottom:1.5rem; font-size:0.9rem;">En güncel elektrik arıza ve tesisat çözümleri</p>
             <div class="insta-feed-container">
                 <behold-widget feed-id="fOFCaN3hpbuP3tWOSbAA"></behold-widget>
                 <script>
@@ -133,7 +169,7 @@
         </section>
 
         <section id="iletisim" class="contact-section">
-            <h3 style="margin-bottom:1.5rem;">İletişim & Ulaşım</h3>
+            <h3 style="margin-bottom:1.5rem; color:var(--primary-color); font-size:1.7rem;">İletişim & Ulaşım</h3>
             <div class="contact-grid">
                 <div>
                     <p><strong>📍 Adres:</strong> Kastamonu Merkez, Aktekke Mahallesi Horozoğlu Sokak Emre Elektirik</p>
@@ -142,7 +178,7 @@
                     <p style="margin-top:10px;"><strong>🕒 Çalışma Saatleri:</strong> Pazartesi - Cumartesi: 08:30 - 19:00</p>
                 </div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23942.78990766464!2d33.767424!3d41.3990912!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fb37164659c9%3A0x233372bb3163984!2sEmre%20Elektrik%20Kastamonu%20Pilsan%20Yetkili%20Servisi!5e0!3m2!1str!2str!4v1779483143982!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23942.78990766464!2d33.767424!3d41.3990912!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4084fb37164659c9%3A0x233372bb3163984!2sEmre%20Elektrik%20Kastamonu%20Pilsan%20Yetkili%20Servisi!5e0!3m2!1str!2str!4v1779483143982!5m2!1str!2str" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
