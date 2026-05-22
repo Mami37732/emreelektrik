@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emre Elektrik & Pilsan Yetkili Servisi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .splash-container {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+
+        .splash-side {
+            display: table-cell;
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            text-decoration: none;
+            transition: filter 0.3s ease;
+            padding: 20px;
+        }
+
+        /* Sol Taraf - Elektrik (Mavi) */
+        .side-electric {
+            background-color: #1e3a8a;
+            color: white;
+            border-right: 2px solid rgba(255,255,255,0.1);
+        }
+
+        /* Sağ Taraf - Akülü Araba (Kırmızı) */
+        .side-car {
+            background-color: #991b1b;
+            color: white;
+        }
+
+        .splash-side:hover {
+            filter: brightness(1.2);
+        }
+
+        .splash-side h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Mobil Görünüm (Alt Alta) */
+        @media (max-width: 768px) {
+            .splash-container {
+                display: block;
+            }
+            .splash-side {
+                display: block;
+                width: 100%;
+                height: 50vh;
+            }
+            .splash-side h1 {
+                font-size: 1.8rem;
+                line-height: 45vh;
+            }
+            .side-electric {
+                border-right: none;
+                border-bottom: 2px solid rgba(255,255,255,0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-container">
+        <a href="elektrik.html" class="splash-side side-electric">
+            <h1>⚡ EMRE ELEKTRİK</h1>
+        </a>
+        <a href="pilsan.html" class="splash-side side-car">
+            <h1>🏎️ AKÜLÜ ARABA SERVİSİ</h1>
+        </a>
+    </div>
+
+</body>
+</html>
